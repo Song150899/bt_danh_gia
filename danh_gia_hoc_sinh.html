@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>tính điểm tổng kết</title>
+</head>
+
+<body>
+<input type="number" id="diemhk1"  >
+<input type="number" id="diemhk2" >
+<select id="hanhkiem" style="width: 100px" onchange="hk()">
+  <option value="hkiem">Hạnh kiểm</option>
+  <option value="Yếu">Yếu</option>
+  <option value="Khá">Khá</option>
+  <option value="Tốt">Tốt</option>
+</select>
+<button onclick="tinh()">tính</button>
+<!--  <input type="button" onclick="tinh()" value="Tính">-->
+<p id="ns">     </p>
+<script>
+  function tinh(){
+    let a=document.getElementById('diemhk1').value;
+    let b= document.getElementById('diemhk2').value;
+    a=parseInt(a)
+    b= parseInt(b)
+    let trungBinhNam= (a+b)/2
+    let hanhkiem=document.getElementById('hanhkiem').value;
+    if (trungBinhNam>10){
+      document.getElementById('ns').innerHTML=' nhập lại điểm '
+    }
+    else if ( trungBinhNam>8 && trungBinhNam<=10 && hanhkiem=="Tốt"){
+      document.getElementById('ns').innerHTML='điểm trung bình bằng = ' + trungBinhNam +'  hạnh kiểm '+ hanhkiem +" =>  học sinh giỏi"
+
+    }
+
+    else if (trungBinhNam>6 && trungBinhNam<=8 && hanhkiem=='Tốt' || hanhkiem=="Khá"){
+      document.getElementById('ns').innerHTML='điểm trung bình bằng = ' + trungBinhNam +'  hạnh kiểm '+ hanhkiem +" =>  học sinh Tiên Tiến"
+
+    }
+    else if (trungBinhNam<6 && hanhkiem=='Tốt' ||hanhkiem=='Khá') {
+      document.getElementById('ns').innerHTML = 'điểm trung bình bằng = ' + trungBinhNam + '  hạnh kiểm ' + hanhkiem + "  =>  học sinh Trung Bình"
+    }
+    else if (hanhkiem== 'Yếu'){
+      document.getElementById('ns').innerHTML= ' Học sinh trung bình '
+    }
+  }
+
+
+
+
+</script>
+</body>
+</html>
